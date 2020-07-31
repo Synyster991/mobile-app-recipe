@@ -21,7 +21,7 @@ const MealList = (props) => {
         complexity={itemData.item.complexity}
         affordability={itemData.item.affordability}
         image={itemData.item.imageUrl}
-        onSelectMeal={openMealDetail.bind(this, itemData.item.id)}
+        onSelectMeal={openMealDetail.bind(this, itemData.item.id, itemData.item.title)}
       />
     );
   };
