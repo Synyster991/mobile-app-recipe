@@ -1,14 +1,19 @@
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
+import { useSelector } from 'react-redux';
 
 import MealItem from "./MealItem";
 
 const MealList = (props) => {
+  const favoriteMeals = useSelector(state => state.meals.favoriteMeals);
+
   const openMealDetail = (mealId) => {
+    const isFavorite = favoriteMeals.find(meal => meal.id === mealId)
     props.navigation.navigate({
       routeName: "MealDetail",
       params: {
         mealId: mealId,
+        isFav: isFavorite
       },
     });
   };
